@@ -16,4 +16,11 @@
         <item name="android:windowIsFloating">false</item>
         <item name="android:windowBackground">@color/background</item>
     </style>
+
+    <!-- Bottom sheet dialog style -->
+    <style name="BottomSheetDialog" parent="Theme.Material3.DayNight.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
 </resources>

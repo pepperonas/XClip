@@ -104,7 +104,7 @@ public class ClipboardService extends Service {
                 .setContentText(contentText)
                 .setSmallIcon(R.drawable.ic_notification)
                 .setContentIntent(pendingIntent)
-                .setOngoing(true)
+                .setOngoing(false)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setCategory(NotificationCompat.CATEGORY_SERVICE)
                 .build();

@@ -14,6 +14,8 @@ android {
         versionName = "0.0.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        setProperty("archivesBaseName", "XClip-v${versionName}")
     }
 
     buildTypes {

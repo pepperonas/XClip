@@ -30,10 +30,15 @@ public class ClipboardDialog extends DialogFragment {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         Dialog dialog = super.onCreateDialog(savedInstanceState);
-        dialog.getWindow().setLayout(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT
-        );
+        if (dialog.getWindow() != null) {
+            // Set dialog height to 75% of screen height
+            android.util.DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+            int height = (int) (displayMetrics.heightPixels * 0.75);
+            dialog.getWindow().setLayout(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    height
+            );
+        }
         return dialog;
     }
 
@@ -103,6 +108,6 @@ public class ClipboardDialog extends DialogFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStyle(DialogFragment.STYLE_NORMAL, R.style.FullScreenDialog);
+        setStyle(DialogFragment.STYLE_NORMAL, R.style.BottomSheetDialog);
     }
 }
