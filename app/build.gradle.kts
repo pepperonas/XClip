@@ -21,10 +21,21 @@ android {
         setProperty("archivesBaseName", "XClip-v${versionName}")
     }
 
+    signingConfigs {
+        create("release") {
+            val keystoreFilePath = System.getenv("KEYSTORE_FILE") ?: "../keystore/xclip-release.jks"
+            storeFile = file(keystoreFilePath)
+            storePassword = System.getenv("KEYSTORE_PASSWORD") ?: "XClip2024Release"
+            keyAlias = System.getenv("KEY_ALIAS") ?: "xclip"
+            keyPassword = System.getenv("KEY_PASSWORD") ?: "XClip2024Release"
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
+            signingConfig = signingConfigs.getByName("release")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
